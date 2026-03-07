@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: food_delivery_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: retail_user
+      POSTGRES_PASSWORD: retail_pass
+      POSTGRES_DB: food_delivery
+      TZ: Asia/Kolkata
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U retail_user -d food_delivery"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
