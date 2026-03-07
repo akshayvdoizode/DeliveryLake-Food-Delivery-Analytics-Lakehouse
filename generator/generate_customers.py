@@ -6,24 +6,22 @@ import config
 
 fake = Faker()
 
-cities = ["Bangalore","Delhi","Mumbai","Hyderabad","Chennai"]
-
 def generate_customers():
 
-    customers = []
+    rows = []
 
     for i in range(config.NUM_CUSTOMERS):
 
-        customers.append({
-            "customer_id": i+1,
+        rows.append({
+            "customer_id": i + 1,
             "customer_name": fake.name(),
-            "city": random.choice(cities),
-            "signup_date": fake.date_between("-2y","today")
+            "city": random.choice(config.CITIES),
+            "signup_date": fake.date_between("-2y", "today")
         })
 
-    df = pd.DataFrame(customers)
+    df = pd.DataFrame(rows)
 
     engine = get_engine()
-    df.to_sql("customers",engine,if_exists="replace",index=False)
+    df.to_sql("customers", engine, if_exists="replace", index=False)
 
     print("customers generated")
