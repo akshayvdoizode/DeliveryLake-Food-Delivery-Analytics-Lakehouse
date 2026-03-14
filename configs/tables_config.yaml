@@ -1,0 +1,17 @@
+tables:
+  orders:
+    watermark_column: order_timestamp
+  delivery_events:
+    watermark_column: event_timestamp
+  payments:
+    watermark_column: payment_timestamp
+  refunds:
+    watermark_column: refund_timestamp
+  order_items:
+    watermark_column: created_at
+  customers:
+    watermark_column: created_at
+  drivers:
+    watermark_column: created_at
+  restaurants:
+    watermark_column: created_at
