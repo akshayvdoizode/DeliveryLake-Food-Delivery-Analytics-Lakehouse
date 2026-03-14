@@ -14,5 +14,5 @@ CREATE TABLE dim_restaurant (
     effective_start_date DATE NOT NULL,
     effective_end_date DATE NOT NULL,
     is_current BOOLEAN NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    insert_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
